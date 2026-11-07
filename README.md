@@ -2,7 +2,7 @@
 
 자동으로 올린 빌드 결과입니다. 직접 고치지 마세요.
 
-- 원본: AI-Labor-Management/saram-saemgak (비공개) `1eeb294`
-- 올린 날: 2026-11-06T23:58:29.060Z
+- 원본: AI-Labor-Management/saram-saemgak (비공개) `fad817d`
+- 올린 날: 2026-11-07T00:57:40.876Z
 - 주소: https://ai-labor-management.github.io/saram-saemgak-site/
 - 다시 올리기: 원본 저장소에서 `npm run publish:pages`
