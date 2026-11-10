@@ -1,0 +1,1 @@
+import{aK as l,W as o}from"./index-B4qR_Wp4.js";function t(a,r=!1){return a.variable?r?`Variable (about ${a.variableWeeklyHours}h/week)`:`매주 달라요 (주 평균 약 ${a.variableWeeklyHours}시간)`:a.schedule.map((e,i)=>e?`${(r?l:o)[i]} ${e.start}-${e.end}${e.breakMin?r?` (${e.breakMin}m break)`:`(휴${e.breakMin})`:""}`:null).filter(Boolean).join(" · ")}export{t as s};
