@@ -5,6 +5,7 @@ Disallow: /employee
 Disallow: /firm
 Disallow: /admin
 Disallow: /invite
+Disallow: /apply
 Disallow: /reset-password
 
 Sitemap: https://saram.dreamhelixion.com/sitemap.xml
