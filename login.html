@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
+    <script>
+      // 아이폰 · 아이패드: 입력칸을 누를 때 화면이 확대돼 AI 상담 창 닫기(X)가 밖으로 나가던 문제 → 자동 확대만 끈다 (손가락 확대는 iOS가 그대로 허용)
+      try {
+        var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        if (ios) document.querySelector('meta[name=viewport]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, interactive-widget=resizes-content');
+      } catch (e) {}
+    </script>
     <!-- 공개 주소: https://saram.dreamhelixion.com (GitHub Pages + 자체 도메인). 페이지별 제목·설명·주소는 배포 때 scripts/publish-pages.mjs가 바꿔 넣는다 -->
     <meta
       name="description"
@@ -44,8 +51,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
     />
-    <script type="module" crossorigin src="/assets/index-MA8COV5U.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BKNX117V.css">
+    <script type="module" crossorigin src="/assets/index-Cei4K5eS.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-0o9aB4cG.css">
   </head>
   <body>
     <div id="root"></div>
