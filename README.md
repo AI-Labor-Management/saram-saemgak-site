@@ -2,7 +2,7 @@
 
 자동으로 올린 빌드 결과입니다. 직접 고치지 마세요.
 
-- 원본: AI-Labor-Management/saram-saemgak (비공개) `20a972c`
-- 올린 날: 2026-11-20T14:42:41.190Z
+- 원본: AI-Labor-Management/saram-saemgak (비공개) `773786e`
+- 올린 날: 2026-11-20T15:24:06.086Z
 - 주소: https://saram.dreamhelixion.com/
 - 다시 올리기: 원본 저장소에서 `npm run publish:pages`
