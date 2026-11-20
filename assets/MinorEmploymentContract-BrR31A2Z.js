@@ -1,0 +1,1 @@
+import{j as t}from"./index-DUSsLJXI.js";import o from"./EmploymentContractForm-CsfJoYEb.js";import"./contractChecklist-xvA3jDqW.js";import"./SiteHeader-g3SQXyr-.js";import"./PublicTools-BNguRtj5.js";function e(){return t.jsx(o,{minor:!0})}export{e as default};
