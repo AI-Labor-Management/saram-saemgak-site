@@ -8,7 +8,7 @@
 <meta name="referrer" content="no-referrer" />
 <title>사람샘각 자료 모음</title>
 <meta property="og:title" content="사람샘각 자료 모음" />
-<meta property="og:description" content="BIX 최종 발표 · 노무법인샘터 제휴 제안서 · 광고 영상 · 기능 정리 · 11월 21일 수정" />
+<meta property="og:description" content="BIX 최종 발표 · 노무법인샘터 제휴 제안서 · 광고 영상 · 기능 정리 · 11월 21일 00:37 수정" />
 <meta property="og:image" content="https://saram.dreamhelixion.com/og-image.png" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" href="/brand-symbol.svg" type="image/svg+xml" />
@@ -71,7 +71,8 @@ h3 { font-size: 18px; margin: 0; }
 .changes { display: grid; gap: 8px; padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
 .changes-h { font-size: 16px; margin: 0; }
 .changes ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.changes li { display: grid; grid-template-columns: 5.5em minmax(0, 1fr); gap: 10px; font-size: 15px; }
+.changes li { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 10px; font-size: 15px; }
+@media (max-width: 420px) { .changes li { grid-template-columns: 1fr; gap: 0; } }
 .changes time { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .changes-note { margin: 0; font-size: 13.5px; color: var(--muted); }
 .btn { display: inline-block; padding: 9px 14px; border-radius: 9px; background: var(--brand); color: var(--brand-ink); font-weight: 700;
@@ -283,37 +284,38 @@ footer { color: var(--muted); font-size: 14px; display: grid; gap: 4px; border-t
     <span>소상공인을 위한 인사 · 노무 통합 관리 서비스</span>
   </footer>
 </main>
-<script id="share-meta" type="application/json">{"updated":"2026-11-21","files":{"bix-ppt-click.pptx":"2026-11-20","bix-ppt-plain.pptx":"2026-11-20","bix-script-click.pdf":"2026-11-20","bix-script-plain.pdf":"2026-11-20","bix-slides.pdf":"2026-11-20","proposal-a4.pdf":"2026-11-20","promo.mp4":"2026-11-20","features.pdf":"2026-11-21"},"changes":[{"date":"2026-11-21","text":"기능 정리 PDF에서 '함께 보낼 자료' 칸을 빼서 4쪽으로 줄였어요"},{"date":"2026-11-20","text":"자료 모음을 열었어요 — BIX 발표 PPT(클릭 효과 있음 · 없음) · 대본 · 슬라이드 PDF · 제휴 제안서 · 광고 영상 · 기능 정리"}]}</script>
+<script id="share-meta" type="application/json">{"updated":"2026-11-21T00:37","files":{"bix-ppt-click.pptx":"2026-11-20T23:29","bix-ppt-plain.pptx":"2026-11-20T23:29","bix-script-click.pdf":"2026-11-20T23:29","bix-script-plain.pdf":"2026-11-20T23:29","bix-slides.pdf":"2026-11-20T23:29","proposal-a4.pdf":"2026-11-20T18:04","promo.mp4":"2026-11-20T23:07","features.pdf":"2026-11-21T00:37"},"changes":[{"at":"2026-11-21T00:37","text":"기능 정리 PDF에서 '함께 보낼 자료' 칸을 빼서 4쪽으로 줄였어요"},{"at":"2026-11-20T23:41","text":"자료 모음을 열었어요 — BIX 발표 PPT(클릭 효과 있음 · 없음) · 대본 · 슬라이드 PDF · 제휴 제안서 · 광고 영상 · 기능 정리"}]}</script>
 <script>
-// 올릴 때 넣은 고친 날(파일마다) · 바뀐 내용을 화면에 — 없으면(내 컴퓨터에서 열 때) 위의 글 그대로
+// 올릴 때 넣은 고친 시각(파일마다) · 바뀐 내용을 화면에 — 없으면(내 컴퓨터에서 열 때) 위의 글 그대로
+// 시각은 모두 한국 시각 'YYYY-MM-DDTHH:MM'
 (function () {
   var el = document.getElementById('share-meta');
   if (!el) return;
   var meta;
   try { meta = JSON.parse(el.textContent); } catch (e) { return; }
-  var md = function (iso) { var p = iso.split('-'); return Number(p[1]) + '월 ' + Number(p[2]) + '일'; };
-  var today = new Date();
-  var isNew = function (iso) { return (today - new Date(iso + 'T00:00:00+09:00')) / 86400000 < 7; };
+  var when = function (s) { return Number(s.slice(5, 7)) + '월 ' + Number(s.slice(8, 10)) + '일 ' + s.slice(11, 16); };
+  var now = new Date();
+  var isNew = function (s) { return (now - new Date(s + ':00+09:00')) / 86400000 < 7; };
   var asof = document.getElementById('asof');
-  if (asof && meta.updated) { asof.textContent = ''; var b = document.createElement('b'); b.textContent = meta.updated.slice(0, 4) + '년 ' + md(meta.updated); asof.append('마지막 수정 ', b); }
+  if (asof && meta.updated) { asof.textContent = ''; var b = document.createElement('b'); b.textContent = meta.updated.slice(0, 4) + '년 ' + when(meta.updated); asof.append('마지막 수정 ', b); }
   var list = document.getElementById('changes');
   if (list && meta.changes && meta.changes.length) {
     meta.changes.slice(0, 6).forEach(function (c) {
       var li = document.createElement('li');
-      var t = document.createElement('time'); t.dateTime = c.date; t.textContent = md(c.date);
+      var t = document.createElement('time'); t.dateTime = c.at + '+09:00'; t.textContent = when(c.at);
       var s = document.createElement('span'); s.textContent = c.text;
       li.append(t, s); list.append(li);
     });
     document.getElementById('changes-box').hidden = false;
   }
+  // 처음 연 때보다 뒤에 고친 파일만 '새로 바뀜' (처음엔 모든 파일이 새것이라 표시하지 않음)
+  var opened = meta.changes && meta.changes.length ? meta.changes[meta.changes.length - 1].at : '';
   document.querySelectorAll('.file a.btn[href^="files/"]').forEach(function (a) {
     var d = meta.files && meta.files[a.getAttribute('href').slice(6)];
     if (!d) return;
     var box = a.parentElement.querySelector('.meta');
-    var w = document.createElement('div'); w.className = 'when'; w.textContent = md(d) + ' 고침';
+    var w = document.createElement('div'); w.className = 'when'; w.textContent = when(d) + ' 고침';
     box.after(w);
-    // 처음 연 날보다 뒤에 고친 파일만 (처음엔 모든 파일이 새것이라 표시하지 않음)
-    var opened = meta.changes && meta.changes.length ? meta.changes[meta.changes.length - 1].date : '';
     if (isNew(d) && d > opened) {
       var badge = document.createElement('span'); badge.className = 'badge new'; badge.textContent = '새로 바뀜';
       a.parentElement.querySelector('.name').append(badge);
